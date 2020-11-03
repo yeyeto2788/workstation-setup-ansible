@@ -87,6 +87,6 @@
     
   roles:
     - { role: geerlingguy.pip,
-      when: install_docker is 1 }
+      when: install_docker == 1 }
     - { role: geerlingguy.docker,
-      when: install_docker is 1 }
+      when: install_docker == 1 }
