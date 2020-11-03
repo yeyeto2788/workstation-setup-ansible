@@ -63,10 +63,6 @@
       
       become: no
 
-    - name: See output of desktop
-      debug:
-        msg: "{{ desktop_change }}"
-  
   post_tasks:
 
     - name: Clean system packages
