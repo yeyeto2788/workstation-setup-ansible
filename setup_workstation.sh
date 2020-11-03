@@ -6,7 +6,7 @@ cd ~
 git clone https://github.com/yeyeto2788/workstation-setup-ansible.git
 cd ./workstation-setup-ansible
 pip3 install ansible
-ansible-galaxy install --roles-path ./roles -r requirements.yaml
+ansible-galaxy install --roles-path ./roles -r ./requirements.yaml
 ansible-playbook main.yaml -K
 #
 echo "Press [ENTER] to terminate and delete files."

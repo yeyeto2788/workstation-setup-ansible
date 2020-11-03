@@ -84,7 +84,7 @@
     docker_install_compose: no
     
   roles:
-    - geerlingguy.pip
-    - geerlingguy.docker
-  
-  when: install_docker == 1
+    - role: geerlingguy.pip
+      when: install_docker == 1
+    - role: geerlingguy.docker
+      when: install_docker == 1
