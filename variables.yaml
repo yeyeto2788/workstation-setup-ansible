@@ -1,0 +1,46 @@
+# apt packages to install.
+packages_to_install:
+  - git
+  - tree
+  - software-properties-common
+  - snapd
+  - python3
+  - python3-pip
+  - nodejs
+  - npm
+
+# Snap package to install on the system.
+snaps_to_install:
+ - code
+ - pycharm-community
+ - freecad
+
+# Gnome extensions/packages
+install_gnome: yes
+# Packages to install and manage
+gnome_packages:
+  - gnome-tweaks
+  - gnome-shell-extensions
+  - chrome-gnome-shell
+
+
+# VS Code extensions installation.
+install_vscode_extensions: yes
+# VS Code extensions to be installed.
+vscode_extensions:
+  - vscoss.vscode-ansible
+  - msjsdiag.cordova-tools
+  - ms-azuretools.vscode-docker
+  - humy2833.ftp-simple
+  - secanis.jenkinsfile-support
+  - bierner.markdown-emoji
+  - esbenp.prettier-vscode
+  - ms-python.python
+  - burkeholland.simple-react-snippets
+  - redhat.vscode-yaml
+
+
+# Desktop background changes.
+change_desktop_background: yes
+# RGB color to set as the desktop background.
+desktop_color: "#00a5a5"
