@@ -38,9 +38,11 @@ vscode_extensions:
   - ms-python.python
   - burkeholland.simple-react-snippets
   - redhat.vscode-yaml
+  - shakram02.bash-beautify
+
 
 
 # Desktop background changes.
 change_desktop_background: yes
 # RGB color to set as the desktop background.
-desktop_color: "#00a5a5"
+desktop_color: "#a5a5a5"
