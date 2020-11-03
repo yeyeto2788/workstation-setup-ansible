@@ -74,6 +74,7 @@
 - name: Install docker and docker-compose
   hosts: 127.0.0.1
   connection: local
+  become: yes
   vars:
     pip_install_packages:
       - name: docker-compose
@@ -87,6 +88,6 @@
     
   roles:
     - { role: geerlingguy.pip,
-      when: install_docker is 1 }
+      when: install_docker == 1 }
     - { role: geerlingguy.docker,
-      when: install_docker is 1 }
+      when: install_docker == 1 }
