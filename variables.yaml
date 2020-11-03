@@ -46,3 +46,7 @@ vscode_extensions:
 change_desktop_background: yes
 # RGB color to set as the desktop background.
 desktop_color: "#a5a5a5"
+
+
+# Install docker and docker-compose
+install_docker: yes

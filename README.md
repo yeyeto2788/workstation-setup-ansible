@@ -21,6 +21,7 @@ Easy way to setup each workstation the same way so I can get reproducible workst
   ```shell
   git clone https://github.com/yeyeto2788/workstation-setup-ansible.git
   cd workstation-setup-ansible
+  ansible-galaxy install --roles-path ./roles -r requirements.yaml
   ansible-playbook main.yaml -K
   ```
 

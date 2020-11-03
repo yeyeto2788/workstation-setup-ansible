@@ -70,3 +70,21 @@
         autoclean: true
         autoremove: true
       become: yes
+
+- name: Install docker and docker-compose
+  hosts: 127.0.0.1
+  connection: local
+  vars:
+    pip_install_packages:
+      - name: docker-compose
+    docker_package_state: latest
+    docker_service_state: started
+    docker_service_enabled: yes
+    docker_restart_handler_state: restarted
+    docker_install_compose: no
+    
+  roles:
+    - geerlingguy.pip
+    - geerlingguy.docker
+  
+  when: install_docker == 1
