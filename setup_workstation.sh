@@ -10,11 +10,11 @@ ansible-playbook main.yaml -K
 #
 echo "Press [ENTER] to terminate and delete files."
 while [ true ] ; do
-read -s -N 1 -t 1 key
-if [[ $key == $'\x0a' ]];        # if input == ENTER key
-then
-cd ~ 
-rm -rf ./workstation-setup-ansible
-exit 0
-fi
+    read -s -N 1 -t 1 key
+    if [[ $key == $'\x0a' ]];   # if input == ENTER key
+    then
+        cd ~
+        rm -rf ./workstation-setup-ansible
+        exit 0
+    fi
 done
