@@ -14,6 +14,7 @@ snaps_to_install:
  - code
  - pycharm-community
  - freecad
+ - inkscape
 
 # Gnome extensions/packages
 install_gnome: yes
