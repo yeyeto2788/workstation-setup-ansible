@@ -40,6 +40,7 @@ vscode_extensions:
   - burkeholland.simple-react-snippets
   - redhat.vscode-yaml
   - shakram02.bash-beautify
+  - ms-vscode-remote.remote-containers
 
 
 
