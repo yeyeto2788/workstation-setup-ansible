@@ -41,6 +41,7 @@ vscode_extensions:
   - redhat.vscode-yaml
   - shakram02.bash-beautify
   - ms-vscode-remote.remote-containers
+  - joelday.docthis
 
 
 
