@@ -29,20 +29,25 @@ gnome_packages:
 install_vscode_extensions: yes
 # VS Code extensions to be installed.
 vscode_extensions:
-  - vscoss.vscode-ansible
-  - msjsdiag.cordova-tools
-  - ms-azuretools.vscode-docker
-  - humy2833.ftp-simple
-  - secanis.jenkinsfile-support
-  - bierner.markdown-emoji
-  - esbenp.prettier-vscode
+  # Python extensions
   - ms-python.python
+  - almenon.arepl
+  - njpwerner.autodocstring
+  # Node extensions
+  - msjsdiag.cordova-tools
+  - esbenp.prettier-vscode
   - burkeholland.simple-react-snippets
+  - joelday.docthis
+  # DevOps extensions
+  - ms-azuretools.vscode-docker
+  - secanis.jenkinsfile-support
+  - vscoss.vscode-ansible
   - redhat.vscode-yaml
   - shakram02.bash-beautify
+  # Other extensions
+  - humy2833.ftp-simple
+  - bierner.markdown-emoji
   - ms-vscode-remote.remote-containers
-  - joelday.docthis
-
 
 
 # Desktop background changes.
