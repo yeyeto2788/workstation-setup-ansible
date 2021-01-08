@@ -43,12 +43,12 @@
 
         - name: Add user to dialout group
           user:
-            name: "{{ remote_user }}"
+            name: "{{ ansible_user }}"
             shell: /bin/bash
             groups:
               - dialout
             append: yes
-          when: remote_user != "root"
+          when: ansible_user != "root"
           
       become: yes
 

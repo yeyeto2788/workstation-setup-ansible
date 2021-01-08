@@ -41,7 +41,6 @@ vscode_extensions:
   - msjsdiag.cordova-tools
   - esbenp.prettier-vscode
   - burkeholland.simple-react-snippets
-  - joelday.docthis
   # DevOps extensions
   - ms-azuretools.vscode-docker
   - secanis.jenkinsfile-support
