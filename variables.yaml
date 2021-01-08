@@ -8,6 +8,8 @@ packages_to_install:
   - python3-pip
   - nodejs
   - npm
+  - android-tools-adb
+  - android-tools-fastboot
 
 # Snap package to install on the system.
 snaps_to_install:
