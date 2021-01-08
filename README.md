@@ -7,7 +7,7 @@ Easy way to setup each workstation the same way so I can get reproducible workst
 - ### **Automated script installation. :racing_car:**
 
   ```shell
-  wget -O - https://raw.githubusercontent.com/yeyeto2788/workstation-setup-ansible/main/setup_workstation.sh | bash
+  wget -q -O - https://raw.githubusercontent.com/yeyeto2788/workstation-setup-ansible/main/setup_workstation.sh | bash
   ```
 
 - ### **Execution via `ansible-pull` :metal:**
