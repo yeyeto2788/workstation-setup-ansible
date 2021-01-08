@@ -43,13 +43,14 @@ vscode_extensions:
   # DevOps extensions
   - ms-azuretools.vscode-docker
   - secanis.jenkinsfile-support
-  - vscoss.vscode-ansible
   - redhat.vscode-yaml
   - shakram02.bash-beautify
   # Other extensions
   - humy2833.ftp-simple
   - bierner.markdown-emoji
   - ms-vscode-remote.vscode-remote-extensionpack
+  - docsmsft.docs-markdown
+
 
 
 # Desktop background changes.
