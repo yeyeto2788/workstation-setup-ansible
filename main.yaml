@@ -17,6 +17,12 @@
     - name: Execute tasks with escalated priviledges
       block:
 
+        - name: Add OBS-studio repository into sources list
+          apt_repository:
+            repo: ppa:obsproject/obs-studio
+            state: present
+            update_cache: yes
+
         - name: Install needed packages
           apt:
             name: "{{ packages_to_install }}"

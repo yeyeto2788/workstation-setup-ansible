@@ -10,6 +10,8 @@ packages_to_install:
   - npm
   - android-tools-adb
   - android-tools-fastboot
+  - ffmpeg
+  - obs-studio
 
 # Snap package to install on the system.
 snaps_to_install:
