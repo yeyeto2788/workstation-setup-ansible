@@ -10,7 +10,7 @@ sudo pip3 install ansible
 ansible-galaxy install --roles-path ./roles -r ./requirements.yaml
 ansible-playbook main.yaml -K
 
-read -n 1 -s -r -p "Press [ENTER] to terminate and delete files."
+read -r -p "Press [ENTER] to terminate and delete files." key
 cd ~
 rm -rf ./workstation-setup-ansible
 exit 0
