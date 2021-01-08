@@ -34,6 +34,14 @@
             name: "{{ gnome_packages }}"
             state: present
           when: install_gnome == 1
+
+        - name: Add user to dialout group
+          user:
+            name: "{{ ansible_user_id }}"
+            shell: /bin/bash
+            groups:
+              - dialout
+            append: yes
           
       become: yes
 
