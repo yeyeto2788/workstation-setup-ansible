@@ -12,6 +12,7 @@ packages_to_install:
   - android-tools-fastboot
   - ffmpeg
   - obs-studio
+  - xclip
 
 # Snap package to install on the system.
 snaps_to_install:
@@ -19,6 +20,7 @@ snaps_to_install:
  - pycharm-community
  - freecad
  - inkscape
+ - scrcpy
 
 # Gnome extensions/packages
 install_gnome: yes
