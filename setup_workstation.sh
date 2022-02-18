@@ -8,7 +8,7 @@ git clone https://github.com/yeyeto2788/workstation-setup-ansible.git
 cd ./workstation-setup-ansible
 sudo pip3 install ansible
 ansible-galaxy install --roles-path ./roles -r ./requirements.yaml
-ansible-playbook main.yaml -K
+ansible-playbook main.yaml -K -u $USER
 
 echo
 read -r -s -p "Press [ENTER] to terminate and delete files."
