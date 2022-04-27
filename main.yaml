@@ -7,16 +7,14 @@
   pre_tasks:
     - name: Update packages.
       apt:
-        update_cache: true
+        update_cache: yes
         cache_valid_time: 3600
       changed_when: false
       become: yes
 
   tasks:
-
-    - name: Execute tasks with escalated priviledges
+    - name: Execute tasks with escalated privileges
       block:
-
         - name: Add OBS-studio repository into sources list
           apt_repository:
             repo: ppa:obsproject/obs-studio
@@ -30,7 +28,7 @@
 
         - name: Install snap applications
           community.general.snap:
-            name: '{{ item }}'
+            name: "{{ item }}"
             classic: yes
             state: present
           with_items: "{{ snaps_to_install }}"
@@ -44,42 +42,47 @@
         - name: Add user to dialout group
           user:
             name: "{{ ansible_user }}"
-            shell: /bin/bash
+            command: /bin/bash
             groups:
               - dialout
             append: yes
           when: ansible_user != "root"
-          
+
+        - name: Remove laptop lid action
+          ansible.builtin.lineinfile:
+            path: /etc/systemd/logind.conf
+            regexp: "^#HandleLidSwitch=suspend"
+            line: HandleLidSwitch=ignore
+          notify: Restart logind
+
       become: yes
 
-    - name: Execute commands without escalated priviledges
+    - name: Execute commands without escalated privileges
       block:
+        - name: Install VS Code extensions
+          command:
+            cmd: "code --install-extension {{ item }}"
+          with_items: "{{ vscode_extensions }}"
+          when: install_vscode_extensions == 1
+          register: code_extensions
+          changed_when: "'is already installed.' not in code_extensions.stdout"
 
-      - name: Install VS Code extensions
-        shell: 
-          cmd: 'code --install-extension {{ item }}'
-        with_items: "{{ vscode_extensions }}"
-        when: install_vscode_extensions == 1
-        register: code_extensions
-        changed_when: "'is already installed.' not in code_extensions.stdout"
+        - name: Change desktop background
+          command:
+            cmd: "{{ item }}"
+          with_items:
+            - gsettings set org.gnome.desktop.background picture-uri ''
+            - gsettings set org.gnome.desktop.background primary-color "{{ desktop_color }}"
+            - gsettings set org.gnome.desktop.background secondary-color "{{ desktop_color }}"
+            - gsettings set org.gnome.desktop.background color-shading-type 'solid'
 
-      - name: Change desktop background
-        shell: 
-          cmd: '{{ item }}'
-        with_items:
-          - gsettings set org.gnome.desktop.background picture-uri ''
-          - gsettings set org.gnome.desktop.background primary-color "{{ desktop_color }}"
-          - gsettings set org.gnome.desktop.background secondary-color "{{ desktop_color }}"
-          - gsettings set org.gnome.desktop.background color-shading-type 'solid'
+          when: change_desktop_background == 1
+          register: desktop_change
+          failed_when: desktop_change.rc == 1
 
-        when: change_desktop_background == 1
-        register: desktop_change
-        failed_when: desktop_change.rc == 1
-      
       become: no
 
   post_tasks:
-
     - name: Clean system packages
       apt:
         autoclean: true
@@ -100,9 +103,14 @@
     docker_restart_handler_state: restarted
     docker_install_compose: no
   vars_files: ./variables.yaml
-    
+
+  handlers:
+    - name: Restart logind
+      ansible.builtin.service:
+        name: systemd-logind
+        state: restarted
+      become: yes
+
   roles:
-    - { role: geerlingguy.pip,
-      when: install_docker == 1 }
-    - { role: geerlingguy.docker,
-      when: install_docker == 1 }
+    - { role: geerlingguy.pip, when: install_docker == 1 }
+    - { role: geerlingguy.docker, when: install_docker == 1 }
