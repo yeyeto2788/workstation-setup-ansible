@@ -22,7 +22,7 @@ Easy way to setup each workstation the same way so I can get reproducible workst
   git clone https://github.com/yeyeto2788/workstation-setup-ansible.git
   cd workstation-setup-ansible
   ansible-galaxy install --roles-path ./roles -r requirements.yaml
-  ansible-playbook main.yaml -K
+  ansible-playbook main.yaml -K -e 'ansible_user=$USER'
   ```
 
 ---
@@ -33,11 +33,11 @@ I tried to document all variables on the [`variables.yaml`](./variables.yaml) fi
 
 | variable                    | default                                                                                              | type      |
 | :-------------------------- | :--------------------------------------------------------------------------------------------------- | :-------- |
-| `packages_to_install`       | See [code](https://github.com/yeyeto2788/workstation-setup-ansible/blob/main/variables.yaml#L2-L14)  | `list`    |
-| `snaps_to_install`          | See [code](https://github.com/yeyeto2788/workstation-setup-ansible/blob/main/variables.yaml#L17-L21) | `list`    |
+| `packages_to_install`       | See [code](https://github.com/yeyeto2788/workstation-setup-ansible/blob/main/variables.yaml#L2-L15)  | `list`    |
+| `snaps_to_install`          | See [code](https://github.com/yeyeto2788/workstation-setup-ansible/blob/main/variables.yaml#L18-L24) | `list`    |
 | `install_gnome`             | yes                                                                                                  | `boolean` |
-| `gnome_packages`            | See [code](https://github.com/yeyeto2788/workstation-setup-ansible/blob/main/variables.yaml#L26-L29) | `list`    |
+| `gnome_packages`            | See [code](https://github.com/yeyeto2788/workstation-setup-ansible/blob/main/variables.yaml#L29-L32) | `list`    |
 | `install_vscode_extensions` | yes                                                                                                  | `boolean` |
-| `vscode_extensions`         | See [code](https://github.com/yeyeto2788/workstation-setup-ansible/blob/main/variables.yaml#L35-L54) | `list`    |
+| `vscode_extensions`         | See [code](https://github.com/yeyeto2788/workstation-setup-ansible/blob/main/variables.yaml#L37-L55) | `list`    |
 | `change_desktop_background` | yes                                                                                                  | `boolean` |
 | `desktop_color`             | `#a5a5a5`                                                                                            | `string`  |

@@ -16,11 +16,12 @@ packages_to_install:
 
 # Snap package to install on the system.
 snaps_to_install:
- - code
- - pycharm-community
- - freecad
- - inkscape
- - scrcpy
+  - code
+  - pycharm-community
+  - freecad
+  - inkscape
+  - scrcpy
+  - flameshot
 
 # Gnome extensions/packages
 install_gnome: yes
@@ -29,7 +30,6 @@ gnome_packages:
   - gnome-tweaks
   - gnome-shell-extensions
   - chrome-gnome-shell
-
 
 # VS Code extensions installation.
 install_vscode_extensions: yes
@@ -54,13 +54,10 @@ vscode_extensions:
   - ms-vscode-remote.vscode-remote-extensionpack
   - docsmsft.docs-markdown
 
-
-
 # Desktop background changes.
 change_desktop_background: yes
 # RGB color to set as the desktop background.
 desktop_color: "#a5a5a5"
-
 
 # Install docker and docker-compose
 install_docker: yes

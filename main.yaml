@@ -29,8 +29,8 @@
         - name: Install snap applications
           community.general.snap:
             name: "{{ item }}"
-            classic: yes
             state: present
+            channel: stable
           with_items: "{{ snaps_to_install }}"
 
         - name: Install Gnome packages
@@ -42,7 +42,6 @@
         - name: Add user to dialout group
           user:
             name: "{{ ansible_user }}"
-            command: /bin/bash
             groups:
               - dialout
             append: yes
