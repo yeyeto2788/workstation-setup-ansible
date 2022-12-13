@@ -21,23 +21,35 @@
             state: present
             update_cache: yes
 
+        - name: Add flatpak repository into sources list
+          apt_repository:
+            repo: ppa:flatpak/stable
+            state: present
+            update_cache: yes
+
         - name: Install needed packages
           apt:
             name: "{{ packages_to_install }}"
             state: present
-
-        - name: Install snap applications
-          community.general.snap:
-            name: "{{ item }}"
-            state: present
-            channel: stable
-          with_items: "{{ snaps_to_install }}"
 
         - name: Install Gnome packages
           apt:
             name: "{{ gnome_packages }}"
             state: present
           when: install_gnome == 1
+
+        - name: Add the flathub flatpak repository remote to the user installation
+          community.general.flatpak_remote:
+            name: flathub
+            state: present
+            flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+
+        - name: Install flatpak packages
+          community.general.flatpak:
+            name: "{{ item }}"
+            state: present
+            remote: flathub
+          with_items: "{{ flatpaks_to_install }}"
 
         - name: Add user to dialout group
           user:
